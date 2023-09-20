@@ -1,4 +1,3 @@
-import TypingAnimation from "./Typinganimation"
 
 const Header = () => {
   return (

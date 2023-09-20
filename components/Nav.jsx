@@ -71,6 +71,7 @@ const Nav = () => {
                 className="inline  hover:rotate-90 transition-all"
                 height={15}
                 width={15}
+                alt="side arrow"
               />
               {hoverResources && (
                 <div className="absolute  bg-gray-200 py-5 w-40 pl-2  left-0">
@@ -119,6 +120,7 @@ const Nav = () => {
                 className="inline  hover:rotate-90 transition-all"
                 height={15}
                 width={15}
+                alt="side arrow"
               />
               {hoverResources && (
                 <div className="absolute  bg-gray-200 py-5 w-40 pl-2  left-0">

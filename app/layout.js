@@ -4,7 +4,10 @@ import Nav from '@components/Nav'
 import Footer from '@components/Footer';
 export const metadata = {
   title: "Apna College",
-  description: "A place where students can find best way to proceed in their carriers"
+  description: "A place where students can find best way to proceed in their carriers",
+  icons: {
+    icon: "/app/favicon.ico",
+  },
 } 
 const RootLayout = ({children}) => {
   return (
