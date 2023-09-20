@@ -1,0 +1,29 @@
+# Frontend
+Components  | Description 
+------------ | -------------
+1. Navbar | Navigation bar
+2. Home | Home page
+  i. Header | Home page
+  ii. About | Home page
+  iii. join new batches | Home page
+  iv. Students Feedback | Home page
+  v.  Join Us| Home page
+3. Footer | Footer
+4. Login | Login page
+5. Register | Register page
+6. Courses | Courses page
+7. Course Details | Course Details page
+8. Resouces | page
+   i. Notes | Notes page
+    ii. College Reveiws | Videos page 
+
+# Backend
+1. Models
+    i. User
+    ii. Student Reviews    
+2. Routes
+    i. User
+    ii. Student Reviews
+
+
+
