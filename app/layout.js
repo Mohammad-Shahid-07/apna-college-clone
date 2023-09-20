@@ -13,7 +13,7 @@ const RootLayout = ({children}) => {
   return (
    <html lang='eng'>
     <body>
-      <main className='lg:w-3/4 w-full m-auto '>
+      <main className='lg:w-3/4 w-full m-auto mx-4'>
         <Nav />
         {children}
         <Footer />
