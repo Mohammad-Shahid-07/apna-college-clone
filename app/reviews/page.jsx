@@ -21,11 +21,13 @@ const Page = () => {
           about,
           company,
           pacage,
-          creator
+         
         }),
       });
       console.log(res);
-      if(res.ok) router.push("/");
+      if(res.ok) {
+        router.push("/")
+      };
     } catch (error) {
       console.log(error, "You foolll");
     } finally {
