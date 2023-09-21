@@ -36,7 +36,7 @@ const Reviews = () => {
             <p className="text-lg font-bold flex mt-5">{review.name}</p>
             <div className="text-lg font-bold flex">
             <p className="text-blue-400 ml-5">@{review.company}</p>
-            <p className="">({review.pacake}  )</p>
+            <p className="">({review.pacage})</p>
             </div>
           </div>
           </div>
