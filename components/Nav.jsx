@@ -96,7 +96,7 @@ const Nav = () => {
 
       {/* Mobile Navigation */}
       {toggleDropdown && (
-        <ul className="mobile_nav toggle">
+        <ul className="mobile_nav toggle z-20">
           <li className="mx-2">
             <Link href="/" onClick={() => setToggleDropdown(false)}>
               Home
@@ -123,13 +123,17 @@ const Nav = () => {
                 alt="side arrow"
               />
               {hoverResources && (
-                <div className="absolute  bg-gray-200 py-5 w-40 pl-2  left-0">
+                <div className="absolute  bg-gray-200 py-5 w-40 pl-2  z-20 left-0">
                   <ul>
                     <li>
-                      <Link href="/collegerev" onClick={() => setToggleDropdown(false)}>College Reveiws</Link>
+                      <Link href="/collegerev" onClick={() => {
+                        setHoverResources(false)
+                        setToggleDropdown(false)}} >College Reveiws</Link>
                     </li>
                     <li>
-                      <Link href="/notes" onClick={() => setToggleDropdown(false)}>Notes</Link>
+                      <Link href="/notes" onClick={() => {
+                        setHoverResources(false)
+                        setToggleDropdown(false)}}>Notes</Link>
                     </li>
                   </ul>
                 </div>
@@ -146,7 +150,7 @@ const Nav = () => {
         </ul>
       )}
       <div
-        className="ham md:hidden ml-auto block mx-5 z-10   cursor-pointer"
+        className="ham md:hidden ml-auto block mx-5 z-20   cursor-pointer"
         onClick={() => setToggleDropdown((prev) => !prev)}
       >
         <span className="h-1 w-8 my-1 bg-gray-800 block rounded"></span>
