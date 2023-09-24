@@ -3,10 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import side from "../public/assets/icons/right-arrow.png";
+
+import { signOut, useSession } from "next-auth/react";
+
 const Nav = () => {
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const [hoverCourses, setHoverCourses] = useState(false);
   const [hoverResources, setHoverResources] = useState(false);
+  const { data: session } = useSession();
 
   return (
     <nav className="flex items-center  md:justify-between  ">
@@ -48,10 +52,10 @@ const Nav = () => {
             <div className="absolute  bg-gray-200 py-5 w-40 pl-2  left-0">
               <ul>
                 <li>
-                  <Link href="/courses/">ALPHA PLUS NEW</Link>
+                  <Link href="/cources">ALPHA PLUS NEW</Link>
                 </li>
                 <li>
-                  <Link href="/courses/">DELTA 2.0</Link>
+                  <Link href="/cources">DELTA 2.0</Link>
                 </li>
               </ul>
             </div>
@@ -63,35 +67,53 @@ const Nav = () => {
           onMouseEnter={() => setHoverResources(true)}
           onMouseLeave={() => setHoverResources(false)}
         >
-         
-            Resources{" "}
-            <span>
-              <Image
-                src={side}
-                className="inline  hover:rotate-90 transition-all"
-                height={15}
-                width={15}
-                alt="side arrow"
-              />
-              {hoverResources && (
-                <div className="absolute  bg-gray-200 py-5 w-40 pl-2  left-0">
-                  <ul>
-                    <li>
-                      <Link href="/collegerev">College Reveiws</Link>
-                    </li>
-                    <li>
-                      <Link href="/notes">Notes</Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </span>
-        
+          Resources{" "}
+          <span>
+            <Image
+              src={side}
+              className="inline  hover:rotate-90 transition-all"
+              height={15}
+              width={15}
+              alt="side arrow"
+            />
+            {hoverResources && (
+              <div className="absolute  bg-gray-200 py-5 w-40 pl-2  left-0">
+                <ul>
+                  <li>
+                    <Link href="/collegerev">College Reveiws</Link>
+                  </li>
+                  <li>
+                    <Link href="/notes">Notes</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </span>
         </li>
 
-        <li className="mx-2">
-          <Link href="/signup">Sign Up</Link>
-        </li>
+        {!session?.user && (
+          <li className="mx-2">
+            <Link onClick={() => setToggleDropdown(false)} href="/signin">
+              Sign In
+            </Link>
+          </li>
+        )}
+
+        {!session?.user && (
+          <li className="mx-2">
+            <Link href="/signup">Sign Up</Link>
+          </li>
+        )}
+        {session?.user && (
+          <li className="mx-2">
+            <Link href="/mybatch">My Batch</Link>
+          </li>
+        )}
+        {session?.user && (
+          <button onClick={() => signOut()} className="mx-2">
+            Sign Out
+          </button>
+        )}
       </ul>
 
       {/* Mobile Navigation */}
@@ -108,11 +130,10 @@ const Nav = () => {
             </Link>
           </li>
           <li
-          className="mx-2 relative cursor-pointer"
-          onMouseEnter={() => setHoverResources(true)}
-          onMouseLeave={() => setHoverResources(false)}
-        >
-         
+            className="mx-2 relative cursor-pointer"
+            onMouseEnter={() => setHoverResources(true)}
+            onMouseLeave={() => setHoverResources(false)}
+          >
             Resources{" "}
             <span>
               <Image
@@ -126,27 +147,56 @@ const Nav = () => {
                 <div className="absolute  bg-gray-200 py-5 w-40 pl-2  z-20 left-0">
                   <ul>
                     <li>
-                      <Link href="/collegerev" onClick={() => {
-                        setHoverResources(false)
-                        setToggleDropdown(false)}} >College Reveiws</Link>
+                      <Link
+                        href="/collegerev"
+                        onClick={() => {
+                          setHoverResources(false);
+                          setToggleDropdown(false);
+                        }}
+                      >
+                        College Reveiws
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/notes" onClick={() => {
-                        setHoverResources(false)
-                        setToggleDropdown(false)}}>Notes</Link>
+                      <Link
+                        href="/notes"
+                        onClick={() => {
+                          setHoverResources(false);
+                          setToggleDropdown(false);
+                        }}
+                      >
+                        Notes
+                      </Link>
                     </li>
                   </ul>
                 </div>
               )}
             </span>
-        
-        </li>
-        
-          <li className="mx-2">
-            <Link onClick={() => setToggleDropdown(false)} href="/signup">
-              Sign Up
-            </Link>
           </li>
+          {!session?.user && (
+            <li className="mx-2">
+              <Link onClick={() => setToggleDropdown(false)} href="/signin">
+                Sign In
+              </Link>
+            </li>
+          )}
+          {!session?.user && (
+            <li className="mx-2">
+              <Link onClick={() => setToggleDropdown(false)} href="/signup">
+                Sign Up
+              </Link>
+            </li>
+          )}
+          {session?.user && (
+            <li className="mx-2">
+              <Link href="/mybatch">My Batch</Link>
+            </li>
+          )}
+          {session?.user && (
+            <button onClick={() => signOut()} className="mx-2">
+              Sign Out
+            </button>
+          )}
         </ul>
       )}
       <div

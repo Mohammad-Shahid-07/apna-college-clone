@@ -1,5 +1,5 @@
 import '@styles/globals.css' ;
-
+import { AuthProvider } from "./Providers";
 import Nav from '@components/Nav'
 import Footer from '@components/Footer';
 export const metadata = {
@@ -13,11 +13,13 @@ const RootLayout = ({children}) => {
   return (
    <html lang='eng'>
     <body>
+    <AuthProvider>
       <main className='lg:w-3/4 w-full m-auto px-2 '>
         <Nav />
         {children}
         <Footer />
       </main>
+    </AuthProvider>
     </body>
    </html>
   )

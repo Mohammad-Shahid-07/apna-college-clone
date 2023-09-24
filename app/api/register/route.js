@@ -6,28 +6,19 @@ export const POST = async (req) => {
   try {
     const { name, email, password, phone } = await req.json();
      
-      // Make sure all required fields are provided
 
-    if (!name || !email || !password || !phone) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: "Please provide all required fields" }),
-      };
-    }
 
     await connectToDatabase();
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = new User({
+    const newUser =  await User.create({
       name,
       email,
       password: hashedPassword, // Store the hashed password in the database
       phone,
     });
-
-    // Save the user to the database
-    await newUser.save();
+    console.log(newUser);
 
     // Respond with a success message
     return {

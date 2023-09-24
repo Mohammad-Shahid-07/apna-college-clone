@@ -1,6 +1,8 @@
 
 import Download from "@components/Download";
+
 const Colleges = () => {
+
   const downloads = [
     {
       name: "NSUT, Delhi",
@@ -23,7 +25,9 @@ const Colleges = () => {
 
 
   return (
-   <Download arr={downloads} detail={"College Reviews"} />
+  
+  <Download arr={downloads} detail={"College Reviews"} />
+  
   );
 };
 

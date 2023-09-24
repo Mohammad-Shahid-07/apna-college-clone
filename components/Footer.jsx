@@ -17,34 +17,34 @@ const Footer = () => {
               College
             </span>
           </Link>
-          <p className="text-xl text-gray-800 ">
+          <p className=" text-gray-800 ">
             We are India's Most Loved Coding Community. Join us!{" "}
           </p>
         </div>
         <div className="col-span-1 m-5 text-gray-700 ">
           <h3 className="text-xl text-gray-800 font-bold">Helpful Links</h3>
-          <ul className="mt-5 font-semibold text-lg  ">
+          <ul className="mt-5 font-semibold   ">
             <li>
               {" "}
-              <span className="font-extrabold text-blue-600 text-lg mr-2">
+              <span className="font-extrabold text-blue-600  mr-2">
                 &gt;
               </span>{" "}
               Cources
             </li>
             <li>
-              <span className="font-extrabold text-blue-600 text-lg mr-2">
+              <span className="font-extrabold text-blue-600  mr-2">
                 &gt;
               </span>{" "}
               Privacy Policy
             </li>
             <li>
-              <span className="font-extrabold text-blue-600 text-lg mr-2">
+              <span className="font-extrabold text-blue-600  mr-2">
                 &gt;
               </span>{" "}
               REFUND & CANCELLATION POLICY
             </li>
             <li>
-              <span className="font-extrabold text-blue-600 text-lg mr-2">
+              <span className="font-extrabold text-blue-600  mr-2">
                 &gt;
               </span>{" "}
               TERMS & CONDITIONS
@@ -53,7 +53,7 @@ const Footer = () => {
         </div>
         <div className="col-span-1 m-5">
           <h3 className="text-xl text-gray-800 font-bold">Get In Touch </h3>
-          <ul className="mt-5 font-semibold text-lg  text-blue-600  mr-2">
+          <ul className="mt-5 font-semibold   text-blue-600  mr-2">
             <li>alpha@apnacollege.in</li>
             <li>delta@apnacollege.in</li>
             <li>Support Team : 10am-6pm</li>

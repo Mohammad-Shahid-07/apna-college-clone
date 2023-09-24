@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-
+import { useSession } from "next-auth/react";
 const Download = ({arr, detail}) => {
-
+  const {data: session} = useSession()
   const [show, setShow] = useState(arr.map(() => false));
 
   const toggleShow = (index) => {
@@ -16,7 +16,12 @@ const Download = ({arr, detail}) => {
   return (
     <section className="mt-[5rem]">
       <h1 className="mx-auto text-center my-5 font-bold text-2xl ">Download  <span className="text-blue-500">{detail}</span> Resources by  <span className="text-blue-500 font-semibold" >Apna College</span> ❤️</h1>
-      <div className="resources">
+      {!session?.user && 
+      <div className="text-xl font-semibold text-center p-10 mb-28 ">
+        <Link href="/signup " className="px-6 py-3 text-white m-10 bg-blue-500 rounded" >Signup</Link>
+        <Link href="/signin" className="px-6 py-3 border-blue-500 m-10 border-2  rounded  text-blue-500"  >Signin</Link>
+      </div> }
+      {session?.user &&  <div className="resources">
         {arr.map((rev, index) => (
           <div className="card  border-b-2" key={rev.name}>
             <div className="m-auto ">
@@ -49,6 +54,7 @@ const Download = ({arr, detail}) => {
           </div>
         ))}
       </div>
+      }
     </section>
   );
 };
